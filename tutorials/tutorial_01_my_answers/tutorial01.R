@@ -110,7 +110,7 @@ summary(model)
 # either a size or alpha variable to our scatter points. Use the "export" option in the
 # plots window to create a pdf of the plot below. Save it in the same folder as your 
 # latex template.
-pdf("gdp_tax_plot.pdf", width = 8, height = 6)
+
 data %>%
   ggplot(aes(`Tax revenue (% of GDP)`, 
              `GDP per capita (current US$)`, 
@@ -121,7 +121,7 @@ data %>%
        x = "Tax revenue (% of GDP)",
        y = "GDP per capita (current US$)") +
   theme_minimal()
-dev.off()
+
 
 # 2. Regression table
 # We'll use stargazer to create the latex code for our regression table. Clear your 
