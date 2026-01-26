@@ -99,11 +99,67 @@ $$p(D \leq d)= \frac{\sqrt {2\pi}}{d} \sum _{k=1}^{\infty }e^{-(2k-1)^{2}\pi ^{2
 	# generate test statistic
 	D <- max(abs(empiricalCDF - pnorm(data))) \end{lstlisting}
 
-\vspace{3in}
+\vspace{1.5em}
+\hrule
+\vspace{1.5em}
 
+\noindent\textbf{Answer:}
+\noindent To evaluate whether the sample of 1{,}000 Cauchy random variables is consistent with a normal distribution, I implemented the Kolmogorov--Smirnov test manually in \texttt{R}. The test statistic is computed as the maximum absolute difference between the empirical CDF of the data and the theoretical CDF of a standard normal distribution.
+
+\noindent The resulting KS statistic is:
+
+\[
+D = \texttt{0.1347281 }
+\]
+and the corresponding p\text{-}value, computed using the Kolmogorov distribution approximation, is:
+
+\[
+p = \texttt{3.425363e-16}
+\]
+
+\noindent The extremely small p\text{-}value provides strong evidence against the null hypothesis that the data were drawn from a normal distribution. This result is expected, as the Cauchy distribution is heavy-tailed and differs substantially from the normal distribution.
+
+\vspace{1.5em}
+
+\noindent\textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=39, lastline=75]{PS01_JL.R}
+
+\newpage
 \section*{Question 2}
 \noindent Estimate an OLS regression in \texttt{R} that uses the Newton-Raphson algorithm (specifically \texttt{BFGS}, which is a quasi-Newton method), and show that you get the equivalent results to using \texttt{lm}. Use the code below to create your data.
-\vspace{.5cm}
-\lstinputlisting[language=R, firstline=51,lastline=53]{PS01.R} 
+\vspace{1.5em}
+\hrule
+\vspace{1.5em}
+
+\noindent\textbf{Answer:}
+
+\noindent To estimate the simple linear regression model using numerical optimisation, I implemented an OLS estimator via the BFGS quasi--Newton algorithm in \texttt{R}. The objective function minimises the sum of squared residuals, and the resulting coefficient estimates can be compared directly to those obtained from the closed-form OLS solution using \texttt{lm()}. Because OLS is the global minimiser of the squared-error loss, both approaches should yield equivalent parameter estimates.
+
+\noindent The estimated coefficients from the BFGS optimisation and the standard \texttt{lm()} function are:
+
+\vspace{1em}
+
+\begin{center}
+	\begin{tabular}{lcc}
+		\hline
+		& BFGS Estimate & lm() Estimate \\
+		\hline
+		Intercept ($\beta_0$) & \texttt{0.1391778} & \texttt{0.1391874} \\
+		Slope ($\beta_1$)     & \texttt{2.7267000} & \texttt{2.7266985} \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\vspace{1em}
+
+\noindent The two methods produce numerically equivalent results, confirming that the BFGS algorithm successfully recovers the OLS estimates by minimising the sum of squared residuals.
+
+\vspace{1.5em}
+
+\noindent\textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=84, lastline=114]{PS01_JL.R}
+
 
 \end{document}
