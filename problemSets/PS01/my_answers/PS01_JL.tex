@@ -104,17 +104,21 @@ $$p(D \leq d)= \frac{\sqrt {2\pi}}{d} \sum _{k=1}^{\infty }e^{-(2k-1)^{2}\pi ^{2
 \vspace{1.5em}
 
 \noindent\textbf{Answer:}
-\noindent To evaluate whether the sample of 1{,}000 Cauchy random variables is consistent with a normal distribution, I implemented the Kolmogorov--Smirnov test manually in \texttt{R}. The test statistic is computed as the maximum absolute difference between the empirical CDF of the data and the theoretical CDF of a standard normal distribution.
 
-\noindent The resulting KS statistic is:
+\noindent To evaluate whether the sample of 1{,}000 Cauchy random variables is consistent with a normal distribution, I implemented the Kolmogorov--Smirnov test manually in \texttt{R}. The test statistic is computed as the maximum absolute difference between the empirical CDF of the data and the theoretical CDF of a standard normal distribution.\\
+
+\noindent The  \textit{raw} KS statistic is:
 
 \[
-D = \texttt{0.1347281 }
+D = \texttt{0.1357281}
 \]
-and the corresponding p\text{-}value, computed using the Kolmogorov distribution approximation, is:
-
+The \textit{scaled} KS statistic is:
 \[
-p = \texttt{3.425363e-16}
+D = \texttt{4.292098}
+\]
+The corresponding p\text{-}value is:
+\[
+p = \texttt{2.220446e-16}
 \]
 
 \noindent The extremely small p\text{-}value provides strong evidence against the null hypothesis that the data were drawn from a normal distribution. This result is expected, as the Cauchy distribution is heavy-tailed and differs substantially from the normal distribution.
@@ -123,7 +127,7 @@ p = \texttt{3.425363e-16}
 
 \noindent\textbf{R code used:}
 
-\lstinputlisting[language=R, firstline=39, lastline=75]{PS01_JL.R}
+\lstinputlisting[language=R, firstline=35, lastline=115]{PS01_JL.R}
 
 \newpage
 \section*{Question 2}
@@ -159,7 +163,7 @@ p = \texttt{3.425363e-16}
 
 \noindent\textbf{R code used:}
 
-\lstinputlisting[language=R, firstline=84, lastline=114]{PS01_JL.R}
+\lstinputlisting[language=R, firstline=123, lastline=154]{PS01_JL.R}
 
 
 \end{document}

@@ -36,46 +36,88 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 # Problem 1
 #####################
 
-# Kolmogorov–Smirnov test function 
-myKS <- function(data) {
+# 1. Implement the KS Statistic function, D = max_i { i/n - F(x_(i)), F(x_(i)) - (i-1)/n }
+calculate_ks_statistic <- function(x, mean = 0, sd = 1) {
+  n <- length(x)
+  x_sorted <- sort(x)
   
-  # sort data
-  x <- sort(data)
+  # Calculate F_(i): The theoretical CDF of the reference distribution (Normal)
+  F_i <- pnorm(x_sorted, mean = mean, sd = sd)
+  
+  # Calculate indices i = 1 to n
+  i <- 1:n
+  
+  # Term 1: i/n - F_(i)
+  term1 <- (i / n) - F_i
+  
+  # Term 2: F_(i) - (i-1)/n
+  term2 <- F_i - ((i - 1) / n)
+  
+  # D is the maximum of all these values
+  D <- max(pmax(term1, term2))
+  
+  return(D)
+}
+
+# 2. Implement the CDF
+calculate_ks_cdf <- function(d) {
+
+  # We sum enough terms (k) to ensure precision.
+  k <- 1:1000 # Why? To approximate infinity. If you used 1:n for the sum, your p-value calculation would change depending on how much data you collected
+              
+  
+  # The exponent part: -(2k-1)^2 * pi^2 / (8d^2)
+  numerator <- -((2 * k - 1)^2 * pi^2)
+  denominator <- 8 * d^2
+  
+  # Calculate the sum term
+  sum_terms <- exp(numerator / denominator)
+  series_sum <- sum(sum_terms)
+  
+  # Multiply by the leading constant: sqrt(2pi) / d
+  prob <- (sqrt(2 * pi) / d) * series_sum
+  
+  return(prob)
+}
+
+# 3. Meta function to perform the full test
+custom_ks_test <- function(x) {
   n <- length(x)
   
-  # empirical CDF
-  ECDF <- ecdf(x)
-  empiricalCDF <- ECDF(x)
+  # Calculate raw D statistic
+  D_stat <- calculate_ks_statistic(x)
   
-  # theoretical CDF under N(0,1)
-  theoreticalCDF <- pnorm(x)
+  # Scale the statistic for the distribution formula
+  # The distribution of the KS statistic converges to the Kolmogorov distribution when scaled by sqrt(n).
+  d_scaled <- D_stat * sqrt(n)
   
-  # KS statistic
-  D <- max(abs(empiricalCDF - theoreticalCDF))
+  # Calculate CDF probability at d_scaled
+  cdf_prob <- calculate_ks_cdf(d_scaled)
   
-  # Kolmogorov p-value approximation
-  k <- 1:100 # we approximate the infinite sum using the first 100 terms.
-  terms <- 2 * (-1)^(k-1) * exp(-2 * (k^2) * (D^2) * n) 
-    # (-1)^(k-1) creates the alternating signs
-    # exp(-2 * (k^2) * (D^2) * n) are the exponential terms that shrink rapidly
-  p_value <- sum(terms)
+  # Calculate P-value, as such, P(D > d) = 1 - P(D <= d)
+  p_value <- 1 - cdf_prob
   
   return(list(
-    statistic = D,
+    D_statistic = D_stat,
+    scaled_d = d_scaled,
     p_value = p_value
   ))
-  }
+}
 
-# generate data from Cauchy distribution
+# --- Execute function ---
+
+# Generate 1,000 Cauchy random variables
 set.seed(123)
 data <- rcauchy(1000, location = 0, scale = 1)
 
-# run KS test
-result <- myKS(data)
-cat("KS Statistic:", result$statistic, "\np-value:", result$p_value)
+# Perform the test comparing Cauchy against a Standard Normal Distribution
+result <- custom_ks_test(data)
 
-# compare with build-in function result
-ks.test(data, "pnorm")
+# Output the results
+cat("D Statistic (Raw):", result$D_statistic, "\n")
+cat("Scaled Statistic (d):", result$scaled_d, "\n")
+cat("P-value:", result$p_value, "\n")
+
 
 #####################
 # Problem 2
