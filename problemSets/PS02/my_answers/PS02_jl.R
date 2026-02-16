@@ -99,7 +99,6 @@ stargazer(model1,
 coef_summary <- summary(model1)$coefficients
 coef_summary
 
-
 # Problem 2a: 160 countries, sanctions from 5% to 15%
 sanctions_5pct_coef <- coef_summary["sanctions5%", "Estimate"]
 sanctions_15pct_coef <- coef_summary["sanctions15%", "Estimate"]
@@ -124,7 +123,6 @@ cat("Percentage change in odds:", (odds_ratio_2a - 1) * 100, "%\n")
 cat("NOTE: In an ADDITIVE model, this is identical to 2a.\n")
 
 # Problem 2c: Predicted probability for 80 countries with no sanctions
-# Manual calculation
 
 # eta_hat = intercept + countries80 * 1 + sanctions_none * 0 (since None is reference)
 intercept <- coef(model1)["(Intercept)"]
