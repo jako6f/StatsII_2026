@@ -128,5 +128,178 @@
 	\end{itemize}
 	\end{enumerate}
 
+\newpage
+
+\section*{Problem 1}
+
+\noindent\textbf{Model and reference categories.}
+I estimated a logistic regression of support for the policy on \texttt{countries} and \texttt{sanctions}, treating both explanatory variables as \emph{unordered categorical} factors. The reference categories are \texttt{countries = ``20 of 192''} and \texttt{sanctions = ``None''}. Therefore, the intercept corresponds to the log-odds of support for the baseline scenario (20 of 192, None), and each reported coefficient is interpreted relative to that baseline holding the other variable constant.
+
+\vspace{0.75em}
+\noindent\textbf{Global null hypothesis test.}
+The global null is that all slope coefficients are zero (i.e., neither \texttt{countries} nor \texttt{sanctions} is associated with support). Using a likelihood-ratio (deviance) test, I obtain $\chi^2(5)=215.15$ with $p=1.62\times 10^{-44}$. I reject the global null; at least one category differs from the reference in support.
+
+\vspace{1.0em}
+\noindent\textbf{Regression output (additive model).}
+% --- Paste stargazer output for model1 below (generated in R) ---
+\begin{table}[!htbp] \centering 
+	\small
+	\caption{Logistic Regression: Support for International Environmental Policy} 
+	\label{tab:model1} 
+	\begin{tabular}{@{\extracolsep{5pt}}lc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+		\cline{2-2} 
+		\\[-1.8ex] & choice \\ 
+		\hline \\[-1.8ex] 
+		countries80 of 192 & 0.336$^{***}$ \\ 
+		& (0.054) \\ 
+		& \\ 
+		countries160 of 192 & 0.648$^{***}$ \\ 
+		& (0.054) \\ 
+		& \\ 
+		sanctions5\% & 0.192$^{***}$ \\ 
+		& (0.062) \\ 
+		& \\ 
+		sanctions15\% & $-$0.133$^{**}$ \\ 
+		& (0.062) \\ 
+		& \\ 
+		sanctions20\% & $-$0.304$^{***}$ \\ 
+		& (0.062) \\ 
+		& \\ 
+		Constant & $-$0.273$^{***}$ \\ 
+		& (0.054) \\ 
+		& \\ 
+		\hline \\[-1.8ex] 
+		Observations & 8,500 \\ 
+		Log Likelihood & $-$5,784.130 \\ 
+		Akaike Inf. Crit. & 11,580.260 \\ 
+		\hline 
+		\hline \\[-1.8ex] 
+		\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+	\end{tabular} 
+\end{table} 
+
+\newpage
+
+\noindent\textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=42, lastline=85]{PS02_JL.R}
+
+
+
+\section*{Problem 2}
+
+\noindent Because there is \emph{no interaction term}, the effect of changing \texttt{sanctions} is the same regardless of the value of \texttt{countries}. Formally, for two sanctions levels $a$ and $b$:
+\[
+\log\!\left(\frac{\text{odds}(\text{Supported}\mid a)}{\text{odds}(\text{Supported}\mid b)}\right)
+= \delta_{a}-\delta_{b},
+\]
+which does \textit{not} depend on \texttt{countries}.
+
+\begin{enumerate}
+	\item[(a)] \textbf{Countries = 160 of 192; sanctions 5\% $\to$ 15\%.} The change in log-odds is
+	\[
+	\Delta = \delta_{15}-\delta_{5} = -0.13325 - 0.19186 = -0.32510.
+	\]
+	The corresponding odds ratio is $e^{\Delta} \approx 0.722$. Thus, increasing sanctions from 5\% to 15\% multiplies the odds of support by about $0.72$ (a \(\approx 27.8\%\) decrease in odds), holding \texttt{countries} fixed at 160 of 192.
+	
+	\item[(b)] \textbf{Countries = 20 of 192; sanctions 5\% $\to$ 15\%.} In an additive model, this odds ratio is identical to part (a):
+	\[
+	OR = e^{\delta_{15}-\delta_{5}} \approx 0.722.
+	\]
+	Interpretation: increasing sanctions from 5\% to 15\% decreases the odds of support by about 27.8\%, holding \texttt{countries} fixed at 20 of 192.
+	
+	\item[(c)] \textbf{Predicted probability for 80 of 192 countries and no sanctions.} For \texttt{countries = 80 of 192} and \texttt{sanctions = None} (reference), the linear predictor is:
+	\[
+	\hat{\eta} = \hat{\beta}_0 + \hat{\beta}_{80} = -0.27266 + 0.33636 = 0.06370.
+	\]
+	Applying the logistic transform gives:
+	\[
+	\hat{p} = \frac{1}{1+e^{-\hat{\eta}}} \approx 0.5159.
+	\]
+	Therefore, the estimated probability of support is approximately \(\hat{p}\approx 0.516\) (51.6\%).
+\end{enumerate}
+
+\noindent\textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=98, lastline=140]{PS02_JL.R}
+
+
+\newpage
+\section*{Problem 3}
+
+\begin{enumerate}
+	\item[(i)] \textbf{Would the answers to 2(a) and 2(b) differ if we included an interaction?}\\
+	Yes, potentially. With a \texttt{countries $\times$ sanctions} interaction, the effect of increasing sanctions could vary across the \texttt{countries} categories, so the odds ratio for 5\% $\to$ 15\% could differ between ``160 of 192'' and ``20 of 192''.
+	
+	\item[(ii)] \textbf{Test whether the interaction is appropriate}\\
+	I compared the additive model to a model including \texttt{countries:sanctions} using a likelihood-ratio test. The deviance improvement is $6.2928$ on $6$ degrees of freedom ($p=0.3912$). I therefore do \emph{not} find evidence that the interaction improves model fit; the additive model is adequate, which supports why 2(a) and 2(b) are the same in my results.
+
+\noindent\textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=147, lastline=153]{PS02_JL.R}
+	
+	% --- Paste stargazer output for model1 vs interaction below (generated in R) ---
+	\begin{table}[!htbp] \centering
+		\caption{Model Comparison: Additive vs. Interaction Model}
+		\label{tab:model_comparison}
+		\small
+		\begin{tabular}{@{\extracolsep{5pt}}lcc}
+			\\[-1.8ex]\hline
+			\hline \\[-1.8ex]
+			& \multicolumn{2}{c}{\textit{Dependent variable:}} \\
+			\cline{2-3}
+			\\[-1.8ex] & \multicolumn{2}{c}{choice} \\
+			\\[-1.8ex] & (1) & (2)\\
+			\hline \\[-1.8ex]
+			countries80 of 192 & 0.336$^{***}$ & 0.376$^{***}$ \\
+			& (0.054) & (0.106) \\
+			& & \\
+			countries160 of 192 & 0.648$^{***}$ & 0.613$^{***}$ \\
+			& (0.054) & (0.108) \\
+			& & \\
+			sanctions5\% & 0.192$^{***}$ & 0.122 \\
+			& (0.062) & (0.105) \\
+			& & \\
+			sanctions15\% & $-$0.133$^{**}$ & $-$0.097 \\
+			& (0.062) & (0.108) \\
+			& & \\
+			sanctions20\% & $-$0.304$^{***}$ & $-$0.253$^{**}$ \\
+			& (0.062) & (0.108) \\
+			& & \\
+			countries80 of 192:sanctions5\% &  & 0.095 \\
+			&  & (0.152) \\
+			& & \\
+			countries160 of 192:sanctions5\% &  & 0.130 \\
+			&  & (0.151) \\
+			& & \\
+			countries80 of 192:sanctions15\% &  & $-$0.052 \\
+			&  & (0.152) \\
+			& & \\
+			countries160 of 192:sanctions15\% &  & $-$0.052 \\
+			&  & (0.153) \\
+			& & \\
+			countries80 of 192:sanctions20\% &  & $-$0.197 \\
+			&  & (0.151) \\
+			& & \\
+			countries160 of 192:sanctions20\% &  & 0.057 \\
+			&  & (0.154) \\
+			& & \\
+			Constant & $-$0.273$^{***}$ & $-$0.275$^{***}$ \\
+			& (0.054) & (0.075) \\
+			& & \\
+			\hline \\[-1.8ex]
+			Observations & 8,500 & 8,500 \\
+			Log Likelihood & $-$5,784.130 & $-$5,780.983 \\
+			Akaike Inf. Crit. & 11,580.260 & 11,585.970 \\
+			\hline
+			\hline \\[-1.8ex]
+			\textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+		\end{tabular}
+	\end{table}
+\end{enumerate}
+
 
 \end{document}
