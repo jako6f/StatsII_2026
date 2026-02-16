@@ -127,6 +127,88 @@
 		\item Perform a test to see if including an interaction is appropriate.
 	\end{itemize}
 	\end{enumerate}
+\newpage
+\section*{Problem 1}
+
+\noindent We fit an additive logistic regression model to predict the likelihood of an individual supporting an international environmental policy based on the number of participating countries and the level of sanctions for non-compliance.
+\vspace{1em}
+
+
+\noindent\textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=49, lastline=83]{PS02_JL.R}
+\newpage
+
+\noindent\textbf{Model Summary:}
+\begin{table}[H] \centering 
+	\caption{Logistic Regression: Support for International Environmental Policy} 
+	\label{tab:model1} 
+	\begin{tabular}{@{\extracolsep{5pt}}lc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+		\cline{2-2} 
+		\\[-1.8ex] & choice \\ 
+		\hline \\[-1.8ex] 
+		countries.L & 0.458$^{***}$ \\ 
+		& (0.038) \\ 
+		& \\ 
+		countries.Q & $-$0.010 \\ 
+		& (0.038) \\ 
+		& \\ 
+		sanctions.L & $-$0.276$^{***}$ \\ 
+		& (0.044) \\ 
+		& \\ 
+		sanctions.Q & $-$0.181$^{***}$ \\ 
+		& (0.044) \\ 
+		& \\ 
+		sanctions.C & 0.150$^{***}$ \\ 
+		& (0.044) \\ 
+		& \\ 
+		Constant & $-$0.006 \\ 
+		& (0.022) \\ 
+		& \\ 
+		\hline \\[-1.8ex] 
+		Observations & 8,500 \\ 
+		Log Likelihood & $-$5,784.130 \\ 
+		Akaike Inf. Crit. & 11,580.260 \\ 
+		\hline 
+		\hline \\[-1.8ex] 
+		\textit{Note:}  & \multicolumn{1}{c}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+		& \multicolumn{1}{c}{\parbox[t]{7cm}{$^{***}p<0.01$; $^{**}p<0.05$; $^*p<0.1$}} \\ 
+	\end{tabular} 
+\end{table}
+
+\noindent\textbf{Global Null Hypothesis Test:}
+
+\noindent The likelihood ratio test evaluates the global null hypothesis that all slopes equal zero (i.e., neither countries nor sanctions affect policy support). The test statistic is computed as the difference between the null deviance and residual deviance, which follows a chi-squared distribution with degrees of freedom equal to the number of parameters estimated.
+
+\noindent Results from the global null hypothesis test:
+\begin{itemize}
+	\item Test Statistic (Chi-squared): $\chi^2 = 215.15$
+	\item Degrees of Freedom: $df = 5$
+	\item P-value: $p < 2.220446e-16$ (effectively 0)
+\end{itemize}
+
+\noindent\textbf{Interpretation and Conclusion:}
+
+\noindent The results strongly reject the global null hypothesis ($\chi^2(5) = 215.15$, $p \approx 0$), indicating that the additive model is statistically significant and the explanatory variables meaningfully improve prediction of policy support.
+
+\noindent Examining the individual coefficients:
+
+\begin{itemize}
+	\item \textbf{Countries (Linear term):} The linear contrast for countries is highly significant ($\hat{\beta} = 0.458$, $p < 0.001$). This indicates that as the number of participating countries increases, individuals are significantly more likely to support the policy. The positive coefficient suggests that broader international participation increases policy support.
+	
+	\item \textbf{Countries (Quadratic term):} The quadratic term for countries is not statistically significant ($\hat{\beta} = -0.010$, $p = 0.794$), suggesting that the relationship between country participation and support is approximately linear rather than curved.
+	
+	\item \textbf{Sanctions (Linear term):} The linear contrast for sanctions is highly significant and negative ($\hat{\beta} = -0.276$, $p < 0.001$). This indicates that as sanctions increase, individuals are significantly less likely to support the policy. This finding is intuitive: harsher penalties for non-compliance reduce policy support.
+	
+	\item \textbf{Sanctions (Quadratic term):} The quadratic term for sanctions is also statistically significant and negative ($\hat{\beta} = -0.181$, $p < 0.001$), suggesting a nonlinear relationship where the effect of sanctions accelerates at higher levels.
+	
+	\item \textbf{Sanctions (Cubic term):} The cubic term for sanctions is statistically significant and positive ($\hat{\beta} = 0.150$, $p < 0.001$), indicating some curvature in the relationship at the highest sanction levels.
+\end{itemize}
+
+\noindent\textbf{Conclusion:} The additive logistic regression model is highly significant and explains meaningful variation in policy support. Both the number of participating countries and the level of sanctions significantly affect the probability of supporting international environmental policies. Specifically, individuals are more likely to support policies with broader international participation and less likely to support policies with severe sanctions for non-compliance. The significant polynomial terms for sanctions suggest that the deterrent effect of sanctions is not strictly linear but varies across different sanction levels.
 
 
 \end{document}
