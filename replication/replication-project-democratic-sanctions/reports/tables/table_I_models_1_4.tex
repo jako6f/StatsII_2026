@@ -1,0 +1,52 @@
+\begin{table}
+	\centering
+	\begin{talltblr}[         %% tabularray outer open
+		caption={Triggers of democratic sanctions},
+		]                     %% tabularray outer close
+		{                     %% tabularray inner open
+			colspec={Q[]Q[]Q[]Q[]Q[]},
+			hline{2}={1-5}{solid, black, 0.05em},
+			hline{36}={1-5}{solid, black, 0.05em},
+			hline{1}={1-5}{solid, black, 0.08em},
+			hline{37}={1-5}{solid, black, 0.08em},
+			column{2-5}={}{halign=c},
+			column{1}={}{halign=l},
+		}                     %% tabularray inner close
+		& \shortstack{(1) HTW\\(Western)} & \shortstack{(2) BMR\\(Western)} & \shortstack{(3) HTW\\(EU)} & \shortstack{(4) HTW\\(US)} \\
+		Coup & \num{5.127}*** & \num{4.869}*** & \num{3.765}*** & \num{4.947}*** \\
+		& (\num{0.765}) & (\num{0.645}) & (\num{0.697}) & (\num{0.681}) \\
+		Democracy score (0--10) & \num{-0.056} & \num{-0.040} & \num{-0.081} & \num{-0.116} \\
+		& (\num{0.089}) & (\num{0.095}) & (\num{0.090}) & (\num{0.111}) \\
+		Controversial election & \num{2.584}*** & \num{2.434}*** & \num{2.620}*** & \num{2.275}*** \\
+		& (\num{0.459}) & (\num{0.408}) & (\num{0.466}) & (\num{0.496}) \\
+		Change in civil liberties & \num{0.411} & \num{0.453} & \num{0.368} & \num{0.349} \\
+		& (\num{0.319}) & (\num{0.355}) & (\num{0.364}) & (\num{0.418}) \\
+		Non-democratic sanction ($t-1$) & \num{0.053} & \num{0.031} & \num{-0.273} & \num{-0.523} \\
+		& (\num{0.624}) & (\num{0.656}) & (\num{0.783}) & (\num{1.002}) \\
+		Time since last sanction & \num{-1.788}** &  &  &  \\
+		& (\num{0.553}) &  &  &  \\
+		Time since last sanction$^2$ & \num{0.226}** &  &  &  \\
+		& (\num{0.083}) &  &  &  \\
+		Time since last sanction$^3$ & \num{-0.008}* &  &  &  \\
+		& (\num{0.003}) &  &  &  \\
+		Time since last sanction (BMR) &  & \num{-1.159}* &  &  \\
+		&  & (\num{0.501}) &  &  \\
+		Time since last sanction$^2$ (BMR) &  & \num{0.140}* &  &  \\
+		&  & (\num{0.068}) &  &  \\
+		Time since last sanction$^3$ (BMR) &  & \num{-0.005}+ &  &  \\
+		&  & (\num{0.003}) &  &  \\
+		Time since last EU sanction &  &  & \num{-1.439}* &  \\
+		&  &  & (\num{0.599}) &  \\
+		Time since last EU sanction$^2$ &  &  & \num{0.191}* &  \\
+		&  &  & (\num{0.095}) &  \\
+		Time since last EU sanction$^3$ &  &  & \num{-0.007}+ &  \\
+		&  &  & (\num{0.004}) &  \\
+		Time since last US sanction &  &  &  & \num{-2.067}** \\
+		&  &  &  & (\num{0.650}) \\
+		Time since last US sanction$^2$ &  &  &  & \num{0.253}** \\
+		&  &  &  & (\num{0.093}) \\
+		Time since last US sanction$^3$ &  &  &  & \num{-0.009}* \\
+		&  &  &  & (\num{0.004}) \\
+		N & \num{1520} & \num{1529} & \num{1668} & \num{1583} \\
+	\end{talltblr}
+\end{table}

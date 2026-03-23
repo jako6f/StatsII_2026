@@ -1,0 +1,59 @@
+\begin{table}
+	\centering
+	\begin{talltblr}[         %% tabularray outer open
+		caption={Determinants of democratic sanctions},
+		]                     %% tabularray outer close
+		{                     %% tabularray inner open
+			colspec={Q[]Q[]Q[]Q[]},
+			rowsep=1pt,
+			hline{2}={1-4}{solid, black, 0.05em},
+			hline{42}={1-4}{solid, black, 0.05em},
+			hline{1}={1-4}{solid, black, 0.08em},
+			hline{43}={1-4}{solid, black, 0.08em},
+			column{2-4}={}{halign=c},
+			column{1}={}{halign=l},
+		}                     %% tabularray inner close
+		& \shortstack{(5) HTW\\(Western)} & \shortstack{(6) BMR\\(Western)} & \shortstack{(7) HTW\\(Western)} \\
+		Coup & \num{5.128}*** & \num{5.050}*** & \num{5.121}*** \\
+		& (\num{1.001}) & (\num{0.817}) & (\num{1.021}) \\
+		Controversial election & \num{2.909}*** & \num{2.881}*** & \num{3.278}*** \\
+		& (\num{0.452}) & (\num{0.415}) & (\num{0.499}) \\
+		Protests & \num{0.095} & \num{0.123}+ & \num{0.090} \\
+		& (\num{0.060}) & (\num{0.063}) & (\num{0.066}) \\
+		GDP per capita growth ($t-1$) & \num{-0.026} & \num{-0.024} & \num{-0.023} \\
+		& (\num{0.030}) & (\num{0.035}) & (\num{0.030}) \\
+		Inflation ($t-1$) & \num{0.022}** & \num{0.031}*** & \num{0.022}** \\
+		& (\num{0.008}) & (\num{0.009}) & (\num{0.008}) \\
+		GDP per capita (\$1,000s, $t-1$) & \num{-0.178}* & \num{-0.115} & \num{-0.181}* \\
+		& (\num{0.089}) & (\num{0.091}) & (\num{0.089}) \\
+		Western organizational ties ($t-1$) & \num{0.301}* & \num{0.338}* & \num{0.316}** \\
+		& (\num{0.117}) & (\num{0.133}) & (\num{0.115}) \\
+		China/Russia ties ($t-1$) & \num{-0.081} & \num{-0.107} & \num{-0.048} \\
+		& (\num{0.157}) & (\num{0.161}) & (\num{0.162}) \\
+		Western trade, log ($t-1$) & \num{-0.083} & \num{-0.073} & \num{-0.091} \\
+		& (\num{0.174}) & (\num{0.135}) & (\num{0.176}) \\
+		FDI inflows ($t-1$) & \num{-0.046}* & \num{-0.057}*** & \num{-0.029} \\
+		& (\num{0.022}) & (\num{0.016}) & (\num{0.036}) \\
+		Oil production ($t-1$) & \num{0.001} & \num{-0.001} & \num{0.002} \\
+		& (\num{0.007}) & (\num{0.008}) & (\num{0.007}) \\
+		Non-democratic sanction ($t-1$) & \num{0.848} & \num{0.483} & \num{0.870} \\
+		& (\num{0.571}) & (\num{0.709}) & (\num{0.564}) \\
+		Political closeness to West ($t-1$) & \num{-4.413}** & \num{-5.587}** & \num{-4.495}* \\
+		& (\num{1.651}) & (\num{1.844}) & (\num{1.753}) \\
+		Time since last sanction & \num{-1.643}** &  & \num{-1.706}** \\
+		& (\num{0.572}) &  & (\num{0.603}) \\
+		Time since last sanction$^2$ & \num{0.212}* &  & \num{0.224}* \\
+		& (\num{0.083}) &  & (\num{0.089}) \\
+		Time since last sanction$^3$ & \num{-0.008}* &  & \num{-0.009}* \\
+		& (\num{0.003}) &  & (\num{0.004}) \\
+		Time since last sanction (BMR) &  & \num{-0.758} &  \\
+		&  & (\num{0.498}) &  \\
+		Time since last sanction$^2$ (BMR) &  & \num{0.098} &  \\
+		&  & (\num{0.065}) &  \\
+		Time since last sanction$^3$ (BMR) &  & \num{-0.004} &  \\
+		&  & (\num{0.002}) &  \\
+		Controversial election $\times$ FDI inflows &  &  & \num{-0.236}+ \\
+		&  &  & (\num{0.121}) \\
+		N & \num{1219} & \num{1229} & \num{1219} \\
+	\end{talltblr}
+\end{table}

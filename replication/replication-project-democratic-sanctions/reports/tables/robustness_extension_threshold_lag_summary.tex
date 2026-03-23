@@ -1,0 +1,19 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+caption={Robustness checks for the replication extension},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]Q[]},
+hline{2}={1-11}{solid, black, 0.05em},
+hline{1}={1-11}{solid, black, 0.08em},
+hline{6}={1-11}{solid, black, 0.08em},
+column{1-11}={}{halign=l},
+}                     %% tabularray inner close
+Specification & Closeness variable & Cutoff percentile & Cutoff value & N & Interaction estimate & Std. error & p-value & 95\% CI & AIC & BIC \\
+Main extension: 1-year lag, top quartile & lagree2un\_westimp2 & \num{0.750} & \num{0.526} & \num{1388.000} & \num{-1.784} & \num{1.257} & \num{0.156} & -4.248–0.681 & \num{222.007} & \num{290.070} \\
+Threshold sensitivity: 1-year lag, top third & lagree2un\_westimp2 & \num{0.667} & \num{0.505} & \num{1388.000} & \num{-1.449} & \num{0.871} & \num{0.096} & -3.156–0.258 & \num{224.527} & \num{292.590} \\
+Threshold sensitivity: 1-year lag, top 20\% & lagree2un\_westimp2 & \num{0.800} & \num{0.548} & \num{1388.000} & \num{-0.619} & \num{1.739} & \num{0.722} & -4.028–2.789 & \num{220.174} & \num{288.237} \\
+Lag sensitivity: 2-year lag, top quartile & l2agree2un\_westimp2 & \num{0.750} & \num{0.532} & \num{1307.000} & \num{0.732} & \num{1.290} & \num{0.570} & -1.797–3.261 & \num{213.459} & \num{280.741} \\
+\end{talltblr}
+\end{table}

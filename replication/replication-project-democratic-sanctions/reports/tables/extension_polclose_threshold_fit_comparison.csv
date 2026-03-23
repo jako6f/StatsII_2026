@@ -1,0 +1,3 @@
+Model,N,LogLik,AIC,BIC
+Baseline,1388,-99.011,222.021,284.849
+Interaction,1388,-98.003,222.007,290.07

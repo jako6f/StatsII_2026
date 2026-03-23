@@ -1,0 +1,5 @@
+election_status,political_closeness,N,Sanctions,Sanction rate
+Controversial election,Lower 3 quartiles,59,10,0.169
+Controversial election,Top quartile,44,1,0.023
+No controversial election,Lower 3 quartiles,982,23,0.023
+No controversial election,Top quartile,303,3,0.01

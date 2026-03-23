@@ -1,0 +1,5 @@
+Election status,Political closeness,Predicted probability,95% CI
+No controversial election,Lower 3 quartiles,0.115,-0.046–0.276
+No controversial election,Top quartile,0.067,-0.099–0.233
+Controversial election,Lower 3 quartiles,0.747,0.317–1.176
+Controversial election,Top quartile,0.216,-0.363–0.794

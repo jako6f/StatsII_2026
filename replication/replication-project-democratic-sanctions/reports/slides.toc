@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Puzzle and Argument\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 1}{2}{0}{1}
+\beamer@sectionintoc {2}{Replication\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 3}{4}{0}{2}
+\beamer@sectionintoc {3}{Extension\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 7}{8}{0}{3}
+\beamer@sectionintoc {4}{Conclusion\unhbox \voidb@x \cleaders \hbox to0.8em{\hss .\hss }\hfill \kern \z@ 10}{11}{0}{4}

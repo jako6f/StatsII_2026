@@ -1,0 +1,5 @@
+Specification,Closeness variable,Cutoff percentile,Cutoff value,N,Interaction estimate,Std. error,p-value,95% CI,AIC,BIC
+"Main extension: 1-year lag, top quartile",lagree2un_westimp2,0.75,0.526,1388,-1.784,1.257,0.156,-4.248–0.681,222.007,290.07
+"Threshold sensitivity: 1-year lag, top third",lagree2un_westimp2,0.6666666666666666,0.505,1388,-1.449,0.871,0.096,-3.156–0.258,224.527,292.59
+"Threshold sensitivity: 1-year lag, top 20%",lagree2un_westimp2,0.8,0.548,1388,-0.619,1.739,0.722,-4.028–2.789,220.174,288.237
+"Lag sensitivity: 2-year lag, top quartile",l2agree2un_westimp2,0.75,0.532,1307,0.732,1.29,0.57,-1.797–3.261,213.459,280.741

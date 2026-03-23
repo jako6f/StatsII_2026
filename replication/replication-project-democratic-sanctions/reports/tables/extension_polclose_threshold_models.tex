@@ -1,0 +1,42 @@
+\begin{table}
+	\centering
+	\begin{talltblr}[         %% tabularray outer open
+		caption={Replication extension: political closeness threshold interaction},
+		]                     %% tabularray outer close
+		{                     %% tabularray inner open
+			colspec={Q[]Q[]Q[]},
+			hline{2}={1-3}{solid, black, 0.05em},
+			hline{26}={1-3}{solid, black, 0.05em},
+			hline{1}={1-3}{solid, black, 0.08em},
+			hline{27}={1-3}{solid, black, 0.08em},
+			column{2-3}={}{halign=c},
+			column{1}={}{halign=l},
+		}                     %% tabularray inner close
+		&  \shortstack{Baseline\\(HTW Western)} & \shortstack{Interaction\\(HTW Western)} \\
+		Coup & \num{5.119}*** & \num{5.074}*** \\
+		& (\num{0.863}) & (\num{0.849}) \\
+		Controversial election & \num{2.817}*** & \num{3.123}*** \\
+		& (\num{0.467}) & (\num{0.508}) \\
+		High political closeness (top quartile) & \num{-1.295}+ & \num{-0.590} \\
+		& (\num{0.775}) & (\num{0.816}) \\
+		Protests & \num{0.109}* & \num{0.110}* \\
+		& (\num{0.053}) & (\num{0.055}) \\
+		GDP per capita growth ($t-1$) & \num{-0.012} & \num{-0.017} \\
+		& (\num{0.022}) & (\num{0.023}) \\
+		Inflation ($t-1$) & \num{0.029}** & \num{0.026}* \\
+		& (\num{0.011}) & (\num{0.011}) \\
+		GDP per capita (\$1,000s, $t-1$) & \num{-0.158}* & \num{-0.151}* \\
+		& (\num{0.070}) & (\num{0.067}) \\
+		Non-democratic sanction ($t-1$) & \num{0.624} & \num{0.734} \\
+		& (\num{0.616}) & (\num{0.609}) \\
+		Time since last sanction & \num{-1.628}* & \num{-1.642}* \\
+		& (\num{0.651}) & (\num{0.648}) \\
+		Time since last sanction$^2$ & \num{0.208}* & \num{0.208}* \\
+		& (\num{0.097}) & (\num{0.097}) \\
+		Time since last sanction$^3$ & \num{-0.008}+ & \num{-0.008}+ \\
+		& (\num{0.004}) & (\num{0.004}) \\
+		Controversial election $\times$ high political closeness &  & \num{-1.784} \\
+		&  & (\num{1.257}) \\
+		N & \num{1388} & \num{1388} \\
+	\end{talltblr}
+\end{table}

@@ -1,0 +1,19 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+caption={Predicted probabilities from the replication extension model},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]},
+hline{2}={1-4}{solid, black, 0.05em},
+hline{1}={1-4}{solid, black, 0.08em},
+hline{6}={1-4}{solid, black, 0.08em},
+column{1-4}={}{halign=l},
+}                     %% tabularray inner close
+Election status & Political closeness & Predicted probability & 95\% CI \\
+No controversial election & Lower 3 quartiles & \num{0.115} & -0.046–0.276 \\
+No controversial election & Top quartile & \num{0.067} & -0.099–0.233 \\
+Controversial election & Lower 3 quartiles & \num{0.747} & 0.317–1.176 \\
+Controversial election & Top quartile & \num{0.216} & -0.363–0.794 \\
+\end{talltblr}
+\end{table}

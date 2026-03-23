@@ -1,0 +1,46 @@
+# replication_analysis.R#
+# Replication scaffold for:#
+# von Soest & Wahman (2014)#
+# "Not all dictators are equal: Coups, fraudulent elections and the selective targeting of democratic sanctions"#
+#
+# -----------------------------#
+# 0) Setup#
+# -----------------------------#
+#
+setwd("/Users/jakoblutkemeier/Documents/projects/replication-project-democratic-sanctions")#
+#
+required_packages <- c(#
+  "readr", "dplyr", "fixest", "modelsummary", "marginaleffects",#
+  "ggplot2", "broom", "car", "tibble", "purrr"#
+)#
+#
+to_install <- required_packages[!vapply(required_packages, requireNamespace, logical(1), quietly = TRUE)]#
+if (length(to_install) > 0) {#
+  install.packages(to_install, repos = "https://cloud.r-project.org")#
+}#
+#
+library(readr)#
+library(dplyr)#
+library(fixest)#
+library(modelsummary)#
+library(marginaleffects)#
+library(ggplot2)#
+library(broom)#
+library(car)#
+library(tibble)#
+library(purrr)#
+#
+# Output folders requested by user#
+table_dir <- "reports/tables"#
+figure_dir <- "reports/figures"#
+#
+dir.create(table_dir, recursive = TRUE, showWarnings = FALSE)#
+dir.create(figure_dir, recursive = TRUE, showWarnings = FALSE)#
+#
+# -----------------------------#
+# 1) Load parsed data#
+# -----------------------------#
+#
+df <- read_csv("data/vSW_replicationJPR.csv", show_col_types = FALSE)#
+#
+# -----------------------------

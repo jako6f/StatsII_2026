@@ -1,0 +1,19 @@
+\begin{table}
+\centering
+\begin{talltblr}[         %% tabularray outer open
+caption={Observed sanction rates by election status and political closeness},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]},
+hline{2}={1-5}{solid, black, 0.05em},
+hline{1}={1-5}{solid, black, 0.08em},
+hline{6}={1-5}{solid, black, 0.08em},
+column{1-5}={}{halign=l},
+}                     %% tabularray inner close
+election\_status & political\_closeness & N & Sanctions & Sanction rate \\
+Controversial election & Lower 3 quartiles & \num{59.000} & \num{10.000} & \num{0.169} \\
+Controversial election & Top quartile & \num{44.000} & \num{1.000} & \num{0.023} \\
+No controversial election & Lower 3 quartiles & \num{982.000} & \num{23.000} & \num{0.023} \\
+No controversial election & Top quartile & \num{303.000} & \num{3.000} & \num{0.010} \\
+\end{talltblr}
+\end{table}
