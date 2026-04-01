@@ -1,0 +1,208 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage{graphicx,textcomp}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{fullpage}
+\usepackage{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amsthm}
+\usepackage{fancyvrb}
+\usepackage{amssymb,enumerate}
+\usepackage[all]{xy}
+\usepackage{endnotes}
+\usepackage{lscape}
+\newtheorem{com}{Comment}
+\usepackage{float}
+\usepackage{hyperref}
+\newtheorem{lem} {Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{defn}{Definition}
+\newtheorem{cor}{Corollary}
+\newtheorem{obs}{Observation}
+\usepackage[compact]{titlesec}
+\usepackage{dcolumn}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{multirow}
+\usepackage{xcolor}
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\definecolor{light-gray}{gray}{0.65}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\newcommand{\Sref}[1]{Section~\ref{#1}}
+\newtheorem{hyp}{Hypothesis}
+
+\title{Problem Set 4}
+\date{Due: April 10, 2026}
+\author{Applied Stats II}
+
+
+\begin{document}
+	\maketitle
+	\section*{Instructions}
+	\begin{itemize}
+	\item Please show your work! You may lose points by simply writing in the answer. If the problem requires you to execute commands in \texttt{R}, please include the code you used to get your answers. Please also include the \texttt{.R} file that contains your code. If you are not sure if work needs to be shown for a particular problem, please ask.
+	\item Your homework should be submitted electronically on GitHub in \texttt{.pdf} form.
+	\item This problem set is due before 23:59 on Friday April 10, 2026. No late assignments will be accepted.
+
+	\end{itemize}
+
+	\vspace{.25cm}
+\section*{Question 1}
+\vspace{.25cm}
+\noindent We're interested in modeling the historical causes of child mortality. We have data from 26855 children born in Skellefteå, Sweden from 1850 to 1884. Using the "child" dataset in the \texttt{eha} library, fit a Cox Proportional Hazard model using mother's age and infant's gender as covariates. Present and interpret the output.
+
+\section*{Question 2}
+\vspace{.25cm}
+\noindent We want to estimate how the amount of damage caused by a disaster relates to (1) whether disaster relief is provided and (2) the amount of relief that is provided  conditional on a donation occurring when a disaster hits a given country. Estimate a Heckman selection model using the \texttt{disasters\_response} data on \href{https://raw.githubusercontent.com/ASDS-TCD/StatsII_2026/refs/heads/main/datasets/disaster_response.csv}{GitHub} in which \texttt{binContribution} is the outcome for the selection equation, and \texttt{originalContributionMillionUSDLogged} is the outcome for the second equation. Use \texttt{occurrences  + deathsEM + normalizedDamageEMLogged} as your input variables for both equations. Present and interpret the output.
+
+\newpage
+\section*{My Answers}
+
+\subsection*{Question 1}
+
+\noindent \textbf{Cox proportional hazards model.}
+Because the outcome of interest is the timing of child death, I estimated a Cox proportional hazards model with mother's age and infant gender as covariates. In this setting, the coefficients are interpreted in terms of changes in the hazard of death rather than changes in a probability or a conditional mean.\\
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Wed, Apr 01, 2026 - 11:37:49
+\begin{table}[!htbp] \centering 
+	\caption{Cox Proportional Hazards Model of Child Mortality} 
+	\label{} 
+	\begin{tabular}{@{\extracolsep{5pt}}lc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		& \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+		\cline{2-2} 
+		\\[-1.8ex] & Hazard of child death \\ 
+		\hline \\[-1.8ex] 
+		Mother's age & 0.0076$^{***}$ \\ 
+		& (0.002) \\ 
+		Female & $-$0.0822$^{***}$ \\ 
+		& (0.027) \\ 
+		\hline \\[-1.8ex] 
+		Observations & 26,574 \\ 
+		R$^{2}$ & 0.001 \\ 
+		Max. Possible R$^{2}$ & 0.986 \\ 
+		Log Likelihood & $-$56,503.480 \\ 
+		Wald Test & 22.520$^{***}$ (df = 2) \\ 
+		LR Test & 22.518$^{***}$ (df = 2) \\ 
+		Score (Logrank) Test & 22.530$^{***}$ (df = 2) \\ 
+		\hline 
+		\hline \\[-1.8ex] 
+		\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+	\end{tabular} 
+\end{table} 
+
+\noindent The model is statistically significant overall. The likelihood ratio test equals 22.52 with 2 degrees of freedom (\(p < 0.001\)), indicating that mother's age and infant gender are jointly associated with the hazard of child mortality.\\
+
+\noindent Mother's age has a positive and statistically significant coefficient (\(\hat{\beta} = 0.0076\), \(p < 0.001\)). Converting this coefficient to the hazard-ratio scale yields \(\exp(0.0076) = 1.0076\). Substantively, this implies that a one-year increase in mother's age is associated with approximately a 0.8\% increase in the hazard of child death, holding infant gender constant. The 95\% confidence interval for the hazard ratio is approximately \([1.003, 1.012]\), which does not include 1.\\
+
+\noindent Infant gender is also statistically significant. With male infants as the reference category, the coefficient for female infants is negative (\(\hat{\beta} = -0.0822\), \(p = 0.002\)). The corresponding hazard ratio is \(\exp(-0.0822) = 0.921\), indicating that female infants have a lower hazard of death than male infants. More specifically, the hazard for female infants is about 7.9\% lower than that for male infants, holding mother's age constant. The 95\% confidence interval for this hazard ratio is approximately \([0.874, 0.971]\), again excluding 1.\\
+
+\noindent Overall, the results suggest that children born to older mothers faced a slightly higher mortality risk, while female infants faced a lower mortality risk than male infants. The effect of mother's age is statistically reliable but substantively modest on a per-year basis.\\
+
+\noindent \textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=35, lastline=54]{PS04_jl.R}
+\newpage
+
+\subsection*{Question 2}
+
+\noindent \textbf{Heckman selection model.}
+To account for the fact that contribution amounts are only observed when a donation occurs, I estimated a Heckman selection model. The selection equation models whether any disaster relief is provided, while the outcome equation models the logged amount of relief conditional on a donation occurring.\\
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Wed, Apr 01, 2026 - 12:40:31
+\begin{table}[!htbp] \centering 
+	\caption{Heckman Selection Model: Probit Selection Equation} 
+	\label{tab:q2_selection} 
+	\begin{tabular}{@{\extracolsep{5pt}} ccccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		Term & Estimate & Std. Error & t value & Pr(\textgreater \textbar t\textbar ) \\ 
+		\hline \\[-1.8ex] 
+		(Intercept) & $$-$1.3039$ & $0.0180$ & $$-$72.3400$ & \textless  0.001 \\ 
+		occurrences & $0.0193$ & $0.0017$ & $11.6500$ & \textless  0.001 \\ 
+		deathsEM & $0.0119$ & $0.0007$ & $16.2300$ & \textless  0.001 \\ 
+		normalizedDamageEMLogged & $0.0210$ & $0.0009$ & $23.2900$ & \textless  0.001 \\ 
+		\hline \\[-1.8ex] 
+	\end{tabular} 
+\end{table} 
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Wed, Apr 01, 2026 - 12:40:31
+\begin{table}[!htbp] \centering 
+	\caption{Heckman Selection Model: Outcome Equation} 
+	\label{tab:q2_outcome} 
+	\begin{tabular}{@{\extracolsep{5pt}} ccccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		Term & Estimate & Std. Error & t value & Pr(\textgreater \textbar t\textbar ) \\ 
+		\hline \\[-1.8ex] 
+		(Intercept) & $0.4135$ & $0.4075$ & $1.0150$ & 0.310 \\ 
+		occurrences & $$-$0.0018$ & $0.0064$ & $$-$0.2910$ & 0.771 \\ 
+		deathsEM & $0.0058$ & $0.0020$ & $2.8560$ & 0.004 \\ 
+		normalizedDamageEMLogged & $$-$0.0181$ & $0.0052$ & $$-$3.4500$ & \textless  0.001 \\ 
+		\hline \\[-1.8ex] 
+	\end{tabular} 
+\end{table} 
+
+\noindent In the \textit{selection equation}, all three predictors are positive and statistically significant. The coefficient on \texttt{occurrences} is \(0.0193\) (\(p < 0.001\)), the coefficient on \texttt{deathsEM} is \(0.0119\) (\(p < 0.001\)), and the coefficient on \texttt{normalizedDamageEMLogged} is \(0.0210\) (\(p < 0.001\)). Substantively, this indicates that disasters with more occurrences, greater mortality, and greater economic damage are more likely to receive some relief.\\
+
+\noindent In the \textit{outcome equation}, the results are more mixed. The coefficient on \texttt{occurrences} is very small and statistically insignificant (\(\hat{\beta} = -0.0018\), \(p = 0.771\)), so there is no clear evidence that the number of disaster occurrences affects the amount of aid once a donation is made. By contrast, \texttt{deathsEM} is positive and statistically significant (\(\hat{\beta} = 0.0058\), \(p = 0.004\)), suggesting that disasters associated with more deaths receive larger logged contributions conditional on selection. \texttt{normalizedDamageEMLogged} is negative and statistically significant (\(\hat{\beta} = -0.0181\), \(p < 0.001\)), indicating that greater logged economic damage is associated with a lower logged contribution amount among disasters that receive aid.\\
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Wed, Apr 01, 2026 - 12:46:42
+\begin{table}[!htbp] \centering 
+	\caption{Heckman Selection Model: Error Terms} 
+	\label{tab:q2_error_terms} 
+	\begin{tabular}{@{\extracolsep{5pt}} ccccc} 
+		\\[-1.8ex]\hline 
+		\hline \\[-1.8ex] 
+		Term & Estimate & Std. Error & t value & Pr(\textgreater \textbar t\textbar ) \\ 
+		\hline \\[-1.8ex] 
+		$\hat{\sigma}$ & $1.9360$ & $0.1038$ & $18.6450$ & \textless  0.001 \\ 
+		$\hat{\rho}$ & $$-$0.5267$ & $0.0910$ & $$-$5.7850$ & \textless  0.001 \\ 
+		\hline \\[-1.8ex] 
+	\end{tabular} 
+\end{table}
+
+\noindent The estimated error-correlation parameter is negative and statistically significant (\(\hat{\rho} = -0.527\), \(p < 0.001\)). This implies that the unobserved factors affecting whether aid is provided are correlated with the unobserved factors affecting the amount of aid, which supports the use of a Heckman model rather than a simple regression on observed contribution amounts alone. The estimated residual standard deviation in the outcome equation is \(\hat{\sigma} = 1.936\).\\
+
+\noindent Overall, the results suggest that more severe disasters are more likely to receive some disaster relief, especially when they involve more deaths and greater damage. Conditional on aid being provided, however, the amount of relief is more clearly related to mortality than to the number of occurrences, while logged economic damage is associated with a modest reduction in logged contribution size.\\
+
+\noindent \textbf{R code used:}
+
+\lstinputlisting[language=R, firstline=67, lastline=130]{PS04_jl.R}
+
+
+\end{document}
