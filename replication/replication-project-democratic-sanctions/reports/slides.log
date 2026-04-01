@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  20 MAR 2026 12:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  1 APR 2026 10:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1738,34 +1738,34 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 50.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 10.40245pt on input line 50.
+(Font)              scaled to size 10.40245pt on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 50.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 7.59998pt on input line 50.
+(Font)              scaled to size 7.59998pt on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 50.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 5.69998pt on input line 50.
+(Font)              scaled to size 5.69998pt on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 50.
+(Font)              scaled to size 11.39996pt on input line 51.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.39996pt on input line 50.
+(Font)              scaled to size 11.39996pt on input line 51.
 
 
 [2
@@ -1776,22 +1776,22 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <12> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 116.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 118.
 LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 11.39996pt on input line 116.
+(Font)              scaled to size 11.39996pt on input line 118.
 
 
 [4
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.54997pt on input line 164.
+(Font)              scaled to size 8.54997pt on input line 166.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 164.
+(Font)              scaled to size 4.74998pt on input line 166.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 164.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 166.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 4.74998pt on input line 164.
+(Font)              scaled to size 4.74998pt on input line 166.
 
 
 [5
@@ -1802,17 +1802,17 @@ LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 209.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 211.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 209.
+(Font)              scaled to size 11.39996pt on input line 211.
 <figures/figure_2_fdi_by_election_status.png, id=79, 722.7pt x 433.62pt>
 File: figures/figure_2_fdi_by_election_status.png Graphic file (type png)
 <use figures/figure_2_fdi_by_election_status.png>
 Package pdftex.def Info: figures/figure_2_fdi_by_election_status.png  used on i
-nput line 209.
+nput line 211.
 (pdftex.def)             Requested size: 338.58632pt x 203.15302pt.
 
-Overfull \vbox (4.5715pt too high) detected at line 209
+Overfull \vbox (4.5715pt too high) detected at line 211
  []
 
 
@@ -1824,7 +1824,7 @@ Overfull \vbox (4.5715pt too high) detected at line 209
 [8
 
 ]
-Overfull \hbox (11.5107pt too wide) in paragraph at lines 285--285
+Overfull \hbox (11.5107pt too wide) in paragraph at lines 287--287
  [][] 
  []
 
@@ -1864,7 +1864,7 @@ Package logreq Info: Writing requests to 'slides.run.xml'.
 Here is how much of TeX's memory you used:
  49284 strings out of 473190
  1138783 string characters out of 5715801
- 2146025 words of memory out of 5000000
+ 2146031 words of memory out of 5000000
  71629 multiletter control sequences out of 15000+600000
  626204 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1877,7 +1877,7 @@ sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 local/texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/
 texlive/2025/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive
 /2025/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on slides.pdf (11 pages, 201432 bytes).
+Output written on slides.pdf (11 pages, 201849 bytes).
 PDF statistics:
  161 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams
